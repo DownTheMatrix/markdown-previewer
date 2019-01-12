@@ -137,3 +137,9 @@ body {
     bottom: 0;
   }
 }
+
+@media only screen and (min-width: 47.5em) and (max-width: 51.87em) {
+  .footer {
+    opacity: 0;
+  }
+}

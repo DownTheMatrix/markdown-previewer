@@ -1,32 +1,138 @@
-.App {
-  text-align: center;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+:root {
+  --font-primary: "Montserrat", sans-serif;
+  --font-secondary: "Merriweather", serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  line-height: 1.6;
+  font-weight: 400;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Wrapper */
+#root {
+  background-color: #fff;
+  flex: 1 0 auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.app {
+  width: 100%;
+  height: 100%;
+}
+
+.textarea {
+  border: 2px solid darkslategrey;
+  font-size: 1.6rem;
+}
+
+.textarea:hover {
+  border: 2px solid darkslategrey;
+}
+
+.textarea::-webkit-input-placeholder {
+  color: grey;
+  font-size: 1.2rem;
+}
+
+.textarea:-moz-placeholder {
+  /* Firefox 18- */
+  color: grey;
+  font-size: 1.2rem;
+}
+
+.textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  color: grey;
+  font-size: 1.2rem;
+}
+
+.textarea:-ms-input-placeholder {
+  color: grey;
+  font-size: 1.2rem;
+}
+
+/* Bulma Styles*/
+.header-heading {
+  font-size: 3.2rem;
+}
+
+.header-subheading {
+  font-size: 2rem;
+}
+
+.title {
+  font-family: var(--font-primary);
+}
+
+.subtitle {
+  font-family: var(--font-secondary);
+}
+
+.columns {
+  width: 100%;
+  height: 100%;
+}
+
+.column-left {
+  padding: 2rem !important;
+}
+
+.column-right {
+  padding: 2rem !important;
+}
+
+.markdown-output {
+  text-align: left;
+  height: 26.5rem;
+  word-wrap: break-word;
+  border: 2px solid darkslategrey;
+  font-size: 1.6rem;
+  overflow: auto;
+}
+
+.footer {
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-family: var(--font-primary);
+  flex-shrink: 0;
+}
+
+.footer-link:link,
+.footer-link:visited {
+  text-decoration: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.footer-link:hover,
+.footer-link:active {
+  padding: 0.2rem;
+  border-bottom: 2px solid goldenrod;
+}
+
+/* Media Queries */
+@media only screen and (min-width: 47.5em) {
+  .footer {
+    position: fixed;
+    bottom: 0;
   }
 }

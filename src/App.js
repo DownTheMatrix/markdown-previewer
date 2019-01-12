@@ -5,9 +5,44 @@ import Footer from "./components/Footer";
 
 const marked = require("marked");
 
+const renderer = new marked.Renderer();
+renderer.link = function(href, title, text) {
+  var link = marked.Renderer.prototype.link.call(this, href, title, text);
+  return link.replace("<a", "<a target='_blank' ");
+};
+
+marked.setOptions({
+  gfm: true,
+  highlight: false,
+  tables: false,
+  breaks: true,
+  pedantic: false,
+  sanitize: true,
+  smartLists: true,
+  smartypants: false,
+  langPrefix: false,
+  renderer: renderer
+});
+
+const initialText = `# Welcome to my React Markdown Previewer!
+## This is a sub-heading...
+\`const marked = require("marked"); // inline code\`
+\`\`\`
+// code block
+function add(a, b) {
+  return a + b;
+}
+\`\`\`
+**bolded text**
+_italic_
+> Block Quotes
++ List item
+[Bulma.css](https://bulma.io/)
+![React Logo Text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/100px-React-icon.svg.png)`;
+
 class App extends Component {
   state = {
-    input: ""
+    input: initialText
   };
 
   renderMarkdown = input => {
@@ -48,7 +83,7 @@ class App extends Component {
               <div
                 id="preview"
                 className="box markdown-output"
-                dangerouslySetInnerHTML={{ __html: marked(input), sanitize: true }}
+                dangerouslySetInnerHTML={{ __html: marked(input), sanitize: true}}
               />
             </div>
           </div>
